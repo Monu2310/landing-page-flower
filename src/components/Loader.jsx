@@ -7,17 +7,18 @@ export default function Loader() {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    // Simulate loading progress
+    // Simulate loading progress with slower, more visible animation
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
           clearInterval(interval)
-          setTimeout(() => setIsLoading(false), 500)
+          setTimeout(() => setIsLoading(false), 800)
           return 100
         }
-        return prev + Math.random() * 15
+        // Slower increment for more visible loading
+        return prev + Math.random() * 8
       })
-    }, 200)
+    }, 150)
 
     return () => clearInterval(interval)
   }, [])

@@ -16,10 +16,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Simulate initial load
+    // Simulate initial load with minimum duration
+    const minLoadTime = 4500 // Ensure users see the loader
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 3000)
+    }, minLoadTime)
 
     return () => clearTimeout(timer)
   }, [])

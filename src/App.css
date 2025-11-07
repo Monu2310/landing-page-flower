@@ -100,7 +100,7 @@ body::before {
   animation: gradientShift 20s ease infinite;
 }
 
-/* Film grain overlay */
+/* Film grain overlay - MORE VISIBLE */
 body::after {
   content: '';
   position: fixed;
@@ -111,8 +111,9 @@ body::after {
   z-index: 9999;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.03;
+  opacity: 0.08;
   animation: grain 8s steps(10) infinite;
+  mix-blend-mode: overlay;
 }
 
 @keyframes grain {
@@ -131,9 +132,11 @@ body::after {
 .app {
   position: relative;
   min-height: 100vh;
+  /* Add subtle CRT screen curvature */
+  transform-style: preserve-3d;
 }
 
-/* CRT Scanlines Effect */
+/* CRT Scanlines Effect - MORE PROMINENT */
 .app::before {
   content: '';
   position: fixed;
@@ -145,15 +148,15 @@ body::after {
   z-index: 9998;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.15) 1px,
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.25) 1px,
     transparent 1px,
     transparent 2px
   );
   animation: scanlines 10s linear infinite;
 }
 
-/* CRT Monitor Glow/Vignette */
+/* CRT Monitor Glow/Vignette - ENHANCED */
 .app::after {
   content: '';
   position: fixed;
@@ -166,10 +169,10 @@ body::after {
   background: radial-gradient(
     ellipse at center,
     transparent 0%,
-    transparent 50%,
-    rgba(0, 0, 0, 0.3) 100%
+    transparent 40%,
+    rgba(0, 0, 0, 0.4) 100%
   );
-  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 250px rgba(0, 0, 0, 0.7);
 }
 
 @keyframes scanlines {
@@ -215,12 +218,13 @@ html {
   color: white;
 }
 
-/* CRT Phosphor Glow Effect on Text */
+/* CRT Phosphor Glow Effect on Text - STRONGER */
 h1, h2, h3, .hero-title, .section-title {
   text-shadow: 
-    0 0 5px currentColor,
-    0 0 10px currentColor,
-    0 0 20px rgba(255, 105, 180, 0.5);
+    0 0 8px currentColor,
+    0 0 15px currentColor,
+    0 0 25px rgba(255, 105, 180, 0.7),
+    0 0 40px rgba(255, 105, 180, 0.4);
 }
 
 /* Subtle RGB Chromatic Aberration */

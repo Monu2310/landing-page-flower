@@ -1,0 +1,192 @@
+.experience-section {
+  min-height: 100vh;
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.1), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.08), transparent 30%),
+    linear-gradient(135deg, transparent 0%, rgba(255, 20, 147, 0.05) 50%, transparent 100%);
+  animation: experienceGlow 12s ease-in-out infinite;
+  z-index: 0;
+}
+
+.experience-section::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 105, 180, 0.03) 2px,
+    rgba(255, 105, 180, 0.03) 4px
+  );
+  animation: gridMove 20s linear infinite;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+@keyframes experienceGlow {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.experience-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 105, 180, 0.15), transparent 70%);
+  pointer-events: none;
+}
+
+.experience-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.experience-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 105, 180, 0.3) 10%,
+    rgba(255, 105, 180, 0.3) 90%,
+    transparent
+  );
+}
+
+.timeline-item {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+  perspective: 1000px;
+}
+
+.timeline-marker {
+  flex-shrink: 0;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.marker-dot {
+  width: 20px;
+  height: 20px;
+  background: #ff69b4;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+  position: relative;
+  z-index: 2;
+}
+
+.marker-ring {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ff69b4;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timeline-content {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 105, 180, 0.3);
+  box-shadow: 0 10px 40px rgba(255, 105, 180, 0.1);
+}
+
+.timeline-icon {
+  font-size: 2rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
+}
+
+.timeline-year {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  background: rgba(255, 105, 180, 0.1);
+  border-radius: 50px;
+  color: #ff69b4;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 105, 180, 0.2);
+}
+
+.timeline-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}

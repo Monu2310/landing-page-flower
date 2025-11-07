@@ -100,7 +100,7 @@ body::before {
   animation: gradientShift 20s ease infinite;
 }
 
-/* Film grain overlay - MORE VISIBLE */
+/* Film grain overlay - ULTRA VISIBLE */
 body::after {
   content: '';
   position: fixed;
@@ -110,9 +110,9 @@ body::after {
   height: 100%;
   z-index: 9999;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.08;
-  animation: grain 8s steps(10) infinite;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.15;
+  animation: grain 6s steps(12) infinite;
   mix-blend-mode: overlay;
 }
 
@@ -136,7 +136,7 @@ body::after {
   transform-style: preserve-3d;
 }
 
-/* CRT Scanlines Effect - MORE PROMINENT */
+/* CRT Scanlines Effect - ULTRA VISIBLE */
 .app::before {
   content: '';
   position: fixed;
@@ -148,12 +148,13 @@ body::after {
   z-index: 9998;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.25),
-    rgba(0, 0, 0, 0.25) 1px,
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.35) 1px,
     transparent 1px,
-    transparent 2px
+    transparent 3px
   );
-  animation: scanlines 10s linear infinite;
+  animation: scanlines 8s linear infinite;
+  opacity: 1;
 }
 
 /* CRT Monitor Glow/Vignette - ENHANCED */

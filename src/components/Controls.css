@@ -13,6 +13,18 @@
   height: 60px;
   background: #ff69b4;
   border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+  z-index: 1001;
+}
+
+.controls-trigger:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(255, 105, 180, 0.5);
+}
 
 .controls-toggle:hover {
   box-shadow: 0 8px 30px rgba(255, 105, 180, 0.5);
@@ -60,6 +72,7 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   outline: none;
+  appearance: none;
   -webkit-appearance: none;
 }
 
@@ -69,6 +82,8 @@
   background: #ff69b4;
   border-radius: 50%;
   border: none;
+  cursor: pointer;
+}
 
 .control-value {
   display: inline-block;
